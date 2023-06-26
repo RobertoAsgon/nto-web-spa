@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
 import dynamic from 'next/dynamic'
-import { PAGES_URL } from '../lib/constants'
+import { PAGES_URL } from '../libs/constants'
 import GlobalUiProvider from '../theme/GlobalUiProvider'
 
 const Header = dynamic(() => import('../components/Header/Header'), {
