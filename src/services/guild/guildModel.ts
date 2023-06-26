@@ -9,7 +9,7 @@ interface IGuild {
   description: string
   guild_logo: Blob | null
   create_ip: number
-  balance: bigint
+  balance: number
   last_execute_points: number
   logo_name: string
 }
