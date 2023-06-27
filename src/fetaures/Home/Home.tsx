@@ -14,7 +14,7 @@ const Home: React.FC<HomeProps> = ({ newsLetter, topGuilds }) => {
   return (
     <HomeContainer>
       <div>
-        <h2>Guilds</h2>
+        <h2>Guilds X</h2>
         {topGuilds.map((guild) => {
           return (
             <div key={guild.id}>
