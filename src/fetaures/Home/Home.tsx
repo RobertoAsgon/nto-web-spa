@@ -1,38 +1,24 @@
+import React from 'react'
 import { HomeContainer } from './styles'
 import { INews } from '../../services/news/newsModel'
 import { IGuild } from '../../services/guild/guildModel'
-import React from 'react'
+import { IPlayer } from '../../services/player/playerModel'
+import TopGuilds from './TopGuilds/TopGuilds'
+import TopPlayers from './TopPlayers/TopPlayers'
+import Newsletters from './Newsletters/Newsletters'
 
 interface HomeProps {
   newsLetter: INews[]
   topGuilds: IGuild[]
+  topPlayers: IPlayer[]
 }
 
-const Home: React.FC<HomeProps> = ({ newsLetter, topGuilds }) => {
-  console.log('newsLetter:', newsLetter)
-  console.log('topGuilds:', topGuilds)
+const Home: React.FC<HomeProps> = ({ newsLetter, topGuilds, topPlayers }) => {
   return (
     <HomeContainer>
-      <div>
-        <h2>Guilds X</h2>
-        {topGuilds.map((guild) => {
-          return (
-            <div key={guild.id}>
-              <span>{guild.name}</span>
-            </div>
-          )
-        })}
-      </div>
-      <div>
-        <h2>Noticias</h2>
-        {newsLetter.map((news) => {
-          return (
-            <div key={news.id}>
-              <span>{news.body}</span>
-            </div>
-          )
-        })}
-      </div>
+      <TopGuilds topGuilds={topGuilds} />
+      <TopPlayers topPlayers={topPlayers} />
+      <Newsletters newsLetter={newsLetter} />
     </HomeContainer>
   )
 }
