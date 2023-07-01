@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
 import dynamic from 'next/dynamic'
-import { PAGES_URL } from '../libs/constants'
+import { PAGES_URL } from '../services/constants'
 import GlobalUiProvider from '../theme/GlobalUiProvider'
 import RootContainer from '../components/RootContainer/RootContainer'
 

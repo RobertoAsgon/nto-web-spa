@@ -4,7 +4,7 @@ FROM node:16 AS builder
 WORKDIR /app
 
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN yarn
 
 COPY . .
 RUN npm run build
@@ -18,8 +18,7 @@ ENV NODE_ENV production
 
 COPY --from=builder /app/package.json ./
 COPY --from=builder /app/.next ./.next
-
-RUN npm ci --only=production
+COPY --from=builder /app/package-lock.json ./
 
 EXPOSE 3000
 
