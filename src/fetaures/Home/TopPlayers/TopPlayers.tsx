@@ -9,13 +9,11 @@ interface ITopPlayersProps {
 }
 
 const TopPlayers: React.FC<ITopPlayersProps> = ({ topPlayers }) => {
-  console.log('topGuilds', topPlayers)
+  const QTTY_MAX_PLAYERS = 4
   return (
     <TopPlayersContainer>
-      <h1>Rank Shinobi</h1>
-
       <PlayerItemWrapper>
-        {topPlayers.map((player: IPlayer) => (
+        {topPlayers.slice(0, QTTY_MAX_PLAYERS).map((player: IPlayer) => (
           <PlayerItem player={player} key={player.id} />
         ))}
       </PlayerItemWrapper>

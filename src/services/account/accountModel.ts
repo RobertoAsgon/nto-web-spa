@@ -3,7 +3,7 @@ interface IAccount {
   password: string
   premium_ends_at: number
   email: string
-  creation: number
+  creation: Date
 }
 
 export type { IAccount }

@@ -3,7 +3,7 @@ import { IApiResponse } from '../api'
 interface INews {
   id: number
   title: string
-  body: string
+  body: string // body é uma pagina html
   type: number
   date: number
   category: number

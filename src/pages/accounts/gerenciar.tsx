@@ -1,9 +1,7 @@
-import React from 'react'
+import React, { useState, Component } from 'react'
 
-const Gerenciar: React.FC = () => (
-  <div>
-    <h1>Gerenciar</h1>
-  </div>
-)
+const Gerenciar: React.FC = () => {
+  return <></>
+}
 
 export default Gerenciar
