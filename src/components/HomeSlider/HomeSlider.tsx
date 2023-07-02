@@ -6,7 +6,7 @@ import Carousel from 'better-react-carousel'
 const HomeSlider: React.FC = () => {
   return (
     <HomeSliderContainer>
-      <Carousel gap={0} autoplay={2000} className="CarouselHome" loop>
+      <Carousel gap={0} autoplay={2000} className="CarouselHome" loop hideArrow>
         <Carousel.Item>
           <img width="100%" src="/assets/home-slider/1.png" />
         </Carousel.Item>

@@ -7,17 +7,10 @@ const RootMainView = styled.main`
   align-items: center;
 `
 
-const HeaderContentView = styled.header`
-  display: flex;
-  width: 1072px;
-  height: 300px;
-  margin: 32px 0 44px 0;
-  
-`
-
 const MainContentView = styled.div`
   display: flex;
   width: 1024px;
+  margin-top: 48px;
   margin-bottom: 180px;
 `
 
@@ -29,23 +22,26 @@ const Background = css`
 `
 
 const RootNavMenuView = styled.aside`
+  position: relative;
   display: flex;
   flex-direction: column;
-  width: 324px;
+  width: 274px;
   margin-right: 16px;
   border-radius: 5px;
-
+  height: 100%;
   ${Background}
 `
 
 const RootContentView = styled.section`
+  position: relative;
+  padding: 24px;
+
   display: flex;
-  width: 100%;
+  flex-direction: column;
   width: 800px;
   border-radius: 5px;
   margin-left: 16px;
-
   ${Background}
 `
 
-export { RootMainView, HeaderContentView, MainContentView, RootNavMenuView, RootContentView, Background }
+export { RootMainView, MainContentView, RootNavMenuView, RootContentView, Background }

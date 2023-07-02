@@ -12,8 +12,6 @@ const TopGuilds: React.FC<ITopGuildsProps> = ({ topGuilds }) => {
   console.log('topGuilds', topGuilds)
   return (
     <TopGuildsContainer>
-      <h1>Top Guilds</h1>
-
       <GuildItemWrapper>
         {topGuilds.map((guild: IGuild) => (
           <GuildItem guild={guild} key={guild.id} />

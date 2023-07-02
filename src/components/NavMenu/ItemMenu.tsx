@@ -1,6 +1,5 @@
-import { Button } from '@mui/material'
-import AddBoxIcon from '@mui/icons-material/AddBox'
 import React from 'react'
+import { ButtonItemMenu } from './styles'
 
 interface ItemMenuProps {
   text: string
@@ -9,11 +8,9 @@ interface ItemMenuProps {
 }
 
 const ItemMenu: React.FC<ItemMenuProps> = ({ text, icon, onClick }) => (
-  <div>
-    <Button variant="outlined" startIcon={icon} onClick={onClick}>
-      {text}
-    </Button>
-  </div>
+  <ButtonItemMenu variant="outlined" startIcon={icon} onClick={onClick}>
+    {text}
+  </ButtonItemMenu>
 )
 
 export default ItemMenu

@@ -6,6 +6,7 @@ import { IPlayer } from '../../services/player/playerModel'
 import TopGuilds from './TopGuilds/TopGuilds'
 import TopPlayers from './TopPlayers/TopPlayers'
 import Newsletters from './Newsletters/Newsletters'
+import HomeSlider from '../../components/HomeSlider/HomeSlider'
 
 interface HomeProps {
   newsLetter: INews[]
@@ -16,6 +17,7 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({ newsLetter, topGuilds, topPlayers }) => {
   return (
     <HomeContainer>
+      <HomeSlider />
       <TopGuilds topGuilds={topGuilds} />
       <TopPlayers topPlayers={topPlayers} />
       <Newsletters newsLetter={newsLetter} />
