@@ -13,6 +13,12 @@ const GlobalStyle = createGlobalStyle`
     a {
       text-decoration: unset;
     }
+    scroll-behavior: smooth;
+    background-image: url(./assets/konoha.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
   }
+  
   `
 export default GlobalStyle
