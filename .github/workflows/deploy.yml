@@ -36,5 +36,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             pwd
+            ls
             cd /home/ec2-user/nto-web-spa
+            ls
             sh Deploy.sh
