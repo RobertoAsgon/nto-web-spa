@@ -37,6 +37,6 @@ jobs:
           script: |
             pwd
             ls
-            cd /home/ec2-user/nto-web-spa
-            ls
-            sh Deploy.sh
+            DEPLOY_PATH=$(find /home/ec2-user/nto-web-spa -name "Deploy.sh" -type f)
+            echo "Found Deploy.sh at: $DEPLOY_PATH"
+            sh "$DEPLOY_PATH"
