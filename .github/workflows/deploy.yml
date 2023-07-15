@@ -20,7 +20,7 @@ jobs:
           ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
 
       - name: Update app files on cloud 
-        uses: sudo -E easingthemes/ssh-deploy@v2
+        uses: easingthemes/ssh-deploy@v2
         with:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
