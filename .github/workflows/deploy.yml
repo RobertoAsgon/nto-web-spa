@@ -26,7 +26,7 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
           SOURCE: ../../../
-          TARGET: /nto-web-spa
+          TARGET: /home/ec2-user/nto-web-spa
       
       - name: Deploy server
         uses: appleboy/ssh-action@master
@@ -36,5 +36,5 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             pwd
-            cd /nto-web-spa
+            cd /home/ec2-user/nto-web-spa
             sh Deploy.sh
