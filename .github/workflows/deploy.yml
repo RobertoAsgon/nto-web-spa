@@ -28,9 +28,10 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cat ${{ secrets.SSH_PRIVATE_KEY }} >> /home/nto-global-repo
-            chmod 600 /home/nto-global-repo
-            chmod 700 /home/nto-global-repo/.ssh
+            mkdir -p ~/.ssh
+            echo "$SSH_PRIVATE_KEY" >> ~/.ssh/authorized_keys
+            chmod 700 ~/.ssh
+            chmod 600 ~/.ssh/authorized_keys
 
       - name: Update app files on cloud 
         uses: easingthemes/ssh-deploy@v2
