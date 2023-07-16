@@ -20,18 +20,7 @@ jobs:
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
           password: ${{ secrets.REMOTE_PASSWORD }}
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Update app files on cloud 
-        uses: easingthemes/ssh-deploy@v2
-        with:
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          SSH_PASSWORD: ${{ secrets.REMOTE_PASSWORD }}
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SOURCE: ../../../
-          TARGET: /home/nto-global-repo/nto-web-spa
-          
       - name: Copy SSH key to server
         uses: easingthemes/ssh-deploy@v2
         with:
@@ -42,6 +31,17 @@ jobs:
             cat ${{ secrets.SSH_PRIVATE_KEY }} >> /home/nto-global-repo
             chmod 600 /home/nto-global-repo
             chmod 700 /home/nto-global-repo/.ssh
+
+      - name: Update app files on cloud 
+        uses: easingthemes/ssh-deploy@v2
+        with:
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          SSH_PASSWORD: ${{ secrets.REMOTE_PASSWORD }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SOURCE: ../../../
+          TARGET: /home/nto-global-repo/nto-web-spa
+        
 
       - name: Check if Docker is installed
         uses: appleboy/ssh-action@master
