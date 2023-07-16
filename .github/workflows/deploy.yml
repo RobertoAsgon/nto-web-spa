@@ -20,6 +20,7 @@ jobs:
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
           password: ${{ secrets.REMOTE_PASSWORD }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Update app files on cloud 
         uses: easingthemes/ssh-deploy@v2
@@ -29,7 +30,7 @@ jobs:
           SSH_PASSWORD: ${{ secrets.REMOTE_PASSWORD }}
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SOURCE: ../../../
-          TARGET: /home/ec2-user/nto-web-spa
+          TARGET: /home/nto-global-repo/nto-web-spa
           
       - name: Copy SSH key to server
         uses: easingthemes/ssh-deploy@v2
@@ -38,9 +39,9 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cat ${{ secrets.SSH_PRIVATE_KEY }} >> ~/.ssh/authorized_keys
-            chmod 600 ~/.ssh/authorized_keys
-            chmod 700 ~/.ssh
+            cat ${{ secrets.SSH_PRIVATE_KEY }} >> /home/nto-global-repo
+            chmod 600 /home/nto-global-repo
+            chmod 700 /home/nto-global-repo/.ssh
 
       - name: Check if Docker is installed
         uses: appleboy/ssh-action@master
@@ -77,6 +78,6 @@ jobs:
           script: |
             pwd
             ls
-            DEPLOY_PATH=$(find /home/ec2-user/nto-web-spa -name "Deploy.sh" -type f)
+            DEPLOY_PATH=$(find /home/nto-global-repo/nto-web-spa -name "Deploy.sh" -type f)
             echo "Found Deploy.sh at: $DEPLOY_PATH"
             sh "$DEPLOY_PATH"
