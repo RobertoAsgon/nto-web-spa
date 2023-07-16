@@ -21,25 +21,12 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           password: ${{ secrets.REMOTE_PASSWORD }}
 
-      - name: Copy SSH key to server
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.REMOTE_HOST }}
-          username: ${{ secrets.REMOTE_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            mkdir -p ~/.ssh
-            echo "$SSH_PRIVATE_KEY" >> ~/.ssh/authorized_keys
-            chmod 700 ~/.ssh
-            chmod 600 ~/.ssh/authorized_keys
-
       - name: Update app files on cloud 
         uses: easingthemes/ssh-deploy@v2
         with:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           SSH_PASSWORD: ${{ secrets.REMOTE_PASSWORD }}
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SOURCE: ../../../
           TARGET: /home/nto-global-repo/nto-web-spa
 
