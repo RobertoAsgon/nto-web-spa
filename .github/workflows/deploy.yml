@@ -27,6 +27,7 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           SSH_PASSWORD: ${{ secrets.REMOTE_PASSWORD }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SOURCE: ../../../
           TARGET: /home/ec2-user/nto-web-spa
 
