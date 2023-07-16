@@ -22,7 +22,7 @@ jobs:
           password: ${{ secrets.REMOTE_PASSWORD }}
 
       - name: Update app files on cloud
-        run: rsync -az --delete ./ user@host:/home/nto-global-repo/nto-web-spa/
+        run: rsync -az --delete ./ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/nto-global-repo/nto-web-spa/
 
       - name: Check if Docker is installed
         uses: appleboy/ssh-action@master
