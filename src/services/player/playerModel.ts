@@ -11,7 +11,15 @@ export enum VOCATION {
   //
   CHOUJI = 7,
   INO = 8,
-  SHIKAMARU = 9
+  SHIKAMARU = 9,
+  //
+  KIBA = 10,
+  HINATA = 11,
+  SHINO = 12
+}
+
+export class VocationModel {
+  constructor(public name: string, public vocation: VOCATION, public image: string) {}
 }
 
 interface IPlayer {

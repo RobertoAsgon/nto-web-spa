@@ -21,7 +21,7 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           password: ${{ secrets.REMOTE_PASSWORD }}
 
-      - name: Update app files on cloud
+      - name: Update files
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.REMOTE_HOST }}
@@ -45,7 +45,7 @@ jobs:
               INSTALL_DOCKER=false
             fi
 
-      - name: Install Docker on EC2
+      - name: Install Docker
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.REMOTE_HOST }}
@@ -55,7 +55,7 @@ jobs:
           script: |
             sudo apt-get update
             sudo apt-get install -y docker.io
-      
+
       - name: Build and Deploy
         uses: appleboy/ssh-action@master
         with:
@@ -63,8 +63,5 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           password: ${{ secrets.REMOTE_PASSWORD }}
           script: |
-            pwd
-            ls
-            DEPLOY_PATH=$(find /home/nto-global-repo/nto-web-spa -name "Deploy.sh" -type f)
-            echo "Found Deploy.sh at: $DEPLOY_PATH"
+            DEPLOY_PATH=$(find /home/nto-global-repo/nto-web-spa -name "deploy.sh" -type f)
             sh "$DEPLOY_PATH"

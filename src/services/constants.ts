@@ -1,9 +1,9 @@
 enum PAGES_URL {
   HOME = '/',
   // Conta
-  LOGIN = '/accounts/login',
-  CREATE_ACCOUNT = '/accounts/criar',
-  ACCOUNT_MANAGEMENT = '/accounts/gerenciar',
+  LOGIN = '/account/login',
+  CREATE_ACCOUNT = '/account/create',
+  ACCOUNT_MANAGEMENT = '/account/management',
   // Personagem
   CHARACTERS = '/players',
   // Guilds
